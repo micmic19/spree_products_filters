@@ -22,7 +22,6 @@ Gem::Specification.new do |spec|
   spec.requirements << 'none'
 
   spec.add_runtime_dependency 'spree_core', '~> 3.7.0'
-  spec.add_runtime_dependency 'haml'
   spec.add_runtime_dependency 'jquery-ui-rails'
 
   spec.add_development_dependency 'bundler', '~> 2.0'
