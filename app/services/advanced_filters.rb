@@ -8,8 +8,8 @@ class AdvancedFilters
     @params[:filters] ||= {}
     params_clone = @params[:filters].deep_dup.delete_if { |_query, value| value.blank? }
 
-    # products    = filters_merger(params_clone, @products).distinct
-    products    = filters_merger(params_clone, @products)
+    products    = filters_merger(params_clone, @products).distinct
+    # products    = filters_merger(params_clone, @products)
     min_price   = products.map(&:price).min.to_i
     max_price   = products.map(&:price).max.round.to_i
     price_range = {min_range: params_clone[:min_price_range].present? ? params_clone[:min_price_range].to_i : min_price,
