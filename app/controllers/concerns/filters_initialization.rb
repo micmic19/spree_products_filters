@@ -31,7 +31,7 @@ module FiltersInitialization
                 else
                   products.send(sorting_scope)
                 end
-    if params[:controller] == 'spree/taxonss' && params[:action] == 'show'
+    if params[:controller] == 'spree/taxons' && params[:action] == 'show'
       @option_types = filters_hash[:option_types]
     end
   end
