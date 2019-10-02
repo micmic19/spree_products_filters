@@ -14,6 +14,6 @@ Spree::TaxonsController.class_eval do
 
   private
   def taxxon_params
-    params.require(:taxon).permit(taxon:, :include_images)
+    params.require(:taxon).permit(:taxon, :include_images)
   end
 end
