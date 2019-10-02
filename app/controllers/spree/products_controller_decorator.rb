@@ -2,7 +2,8 @@ Spree::ProductsController.class_eval do
   include FiltersInitialization
 
   def index
-    @searcher   = build_searcher(params.permit(:include_images, :sorting).merge(include_images: true))
+    # params.permit!
+    @searcher   = build_searcher(params.merge(include_images: true))
     @products   = @searcher.custom_retrieve_products
     @taxonomies = Spree::Taxonomy.includes(root: :children)
 
