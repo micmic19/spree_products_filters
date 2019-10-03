@@ -21,6 +21,7 @@ module FiltersInitialization
   end
 
   def filters_init
+    params.permit!
     filters_hash = AdvancedFilters.new(params, @products).filter_results
     @properties         = filters_hash[:properties]
     @product_properties = filters_hash[:product_properties]
@@ -33,7 +34,7 @@ module FiltersInitialization
                   products.send(sorting_scope)
                 end
     if params[:controller] == 'spree/taxons' && params[:action] == 'show'
-      @option_types = filters_hash[:option_types]
+      @option_types = filters_hash[:option_types].to_h
     end
   end
 end
