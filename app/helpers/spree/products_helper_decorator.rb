@@ -12,8 +12,8 @@ Spree::ProductsHelper.class_eval do
     else
       klass = 'btn btn-default btn-sm'
     end
-    params.permit!
-    link_to Spree.t(key).html_safe, params.merge(sorting: key), class: klass
+    # params.permit!
+    link_to Spree.t(key).html_safe, params.permit(:filters, :commit, :sorting, :utf8).merge(sorting: key), class: klass
   end
 
   def current_sorting?(key)
