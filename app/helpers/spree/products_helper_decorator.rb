@@ -15,7 +15,16 @@ Spree::ProductsHelper.class_eval do
     # params.permit!
     # link_to Spree.t(key).html_safe, params.permit({ :filters => [[[]]] }, { :filters => [[]] },  :types, :filters, { :filters => [] }, :commit, :sorting, :utf8, :page).merge(sorting: key), class: klass
     # link_to Spree.t(key).html_safe, params.merge(sorting: key), class: klass
-    link_to Spree.t(key).html_safe, params.permit(:types, :filters, :commit, :sorting, :utf8, :page, filters: [ ], :filters: [ properties: [ ]], :filters: [ :properties: [:types[]]]).merge(sorting: key), class: klass
+    link_to Spree.t(key).html_safe, params.permit(:types, :filters, :commit, :sorting, :utf8, :page,
+filters: [
+  :max_price_range,
+  :min_price_range,
+  { properties: [
+    :types
+  ]
+ }
+]
+      ).merge(sorting: key), class: klass
   end
 
   def current_sorting?(key)
