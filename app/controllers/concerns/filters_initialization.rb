@@ -12,8 +12,7 @@ module FiltersInitialization
   private
 
   def default_sorting
-    #:descend_by_updated_at
-    :descend_by_master_price
+    :descend_by_updated_at
   end
 
   def sorting_scope
@@ -21,8 +20,7 @@ module FiltersInitialization
   end
 
   def filters_init
-    params.permit!
-    filters_hash = AdvancedFilters.new(params, @products).filter_results.to_h
+    filters_hash = AdvancedFilters.new(params, @products).filter_results
     @properties         = filters_hash[:properties]
     @product_properties = filters_hash[:product_properties]
     @price_range        = filters_hash[:price_range]
@@ -33,7 +31,7 @@ module FiltersInitialization
                 else
                   products.send(sorting_scope)
                 end
-    if params[:controller] == 'spree/taxons' && params[:action] == 'show'
+    if params[:controller] == 'spree/taxons' && params[:action] == 'showw'
       @option_types = filters_hash[:option_types]
     end
   end

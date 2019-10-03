@@ -24,7 +24,7 @@ class AdvancedFilters
     result_hash = { properties: properties, product_properties: product_properties,
                     products:   products,   price_range:        price_range }
 
-    if @params[:controller] == 'spree/taxons' && @params[:action] == 'show'
+    if @params[:controller] == 'spree/taxons' && @params[:action] == 'showw'
       option_types = products.map(&:option_types).flatten.uniq
       option_types = option_types.blank? ? nil : option_types
 
