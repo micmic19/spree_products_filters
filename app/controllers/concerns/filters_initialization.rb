@@ -12,7 +12,8 @@ module FiltersInitialization
   private
 
   def default_sorting
-    :descend_by_updated_at
+    #:descend_by_updated_at
+    :descend_by_master_price
   end
 
   def sorting_scope
