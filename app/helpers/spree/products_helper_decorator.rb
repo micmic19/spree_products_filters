@@ -13,7 +13,7 @@ Spree::ProductsHelper.class_eval do
       klass = 'btn btn-default btn-sm'
     end
     # params.permit!
-    link_to Spree.t(key).html_safe, params.permit({ :filters => [:properties => [:types =>[]]] }, :types, { :filters => [:properties => []] }, :filters, { :filters => [] }, :commit, :sorting, :utf8, :page).merge(sorting: key), class: klass
+    link_to Spree.t(key).html_safe, params.permit({ :filters => [[[]]] }, { :filters => [[]] },  :types, :filters, { :filters => [] }, :commit, :sorting, :utf8, :page).merge(sorting: key), class: klass
   end
 
   def current_sorting?(key)
