@@ -1,6 +1,4 @@
-Deface::Override.new(
-  virtual_path: 'spree/products/index',
-  name: 'advanced_filters',
-  insert_before: "[data-hook='homepage_sidebar_navigation']",
-  text: "<%= render 'spree/shared/advanced_filters'%>"
-)
+Deface::Override.new(virtual_path:  'spree/shared/_products',
+                     insert_before: '#products[data-hook]',
+                     partial:       'spree/shared/sorting_bar',
+                     name:          'sorting_in_products')
