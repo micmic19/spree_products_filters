@@ -1,3 +1,3 @@
 module SpreeProductsFilters
-  VERSION = '0.4.6'
+  VERSION = '0.2.3'
 end

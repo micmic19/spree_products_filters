@@ -13,7 +13,6 @@ Spree::ProductsHelper.class_eval do
       klass = 'btn btn-default btn-sm'
     end
 
-    params.permit!
     link_to Spree.t(key).html_safe, params.merge(sorting: key), class: klass
   end
 
@@ -22,6 +21,7 @@ Spree::ProductsHelper.class_eval do
   end
 
   def filter_checked?(keys, value)
-    (params[:filters][keys[0]].present? && params[:filters][keys[0]][keys[1]].include?(value)) ? true : false
+    keys.map!(&:to_s)
+    (params[:filters][keys[0]].present? && params[:filters][keys[0]][keys[1]]&.include?(value)) ? true : false
   end
 end
